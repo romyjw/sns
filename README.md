@@ -36,6 +36,8 @@ Navigate to the neural surfaces directory:
 ```sh
 cd SphericalNS/sns/neural-surfaces-main
 ```
+Edit the filepath in this script: 0automatic/prepare_overfit.py .
+
 Run the script:
 ```sh
 python -m 0automatic.prepare_overfit.py
