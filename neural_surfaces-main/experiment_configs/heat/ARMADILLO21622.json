@@ -1,0 +1,104 @@
+{
+    "params":
+    {
+        "max_iter":250,
+        "flow_step_size":0.001
+    },
+    "datasets":
+    {
+        "train":
+        {
+            "name":"EigenfuncOverfitDataset",
+            "num_points":5000,
+            "sample_path":"../data/heat/ARMADILLO21622/current_param.pth",
+            "num_workers":8,
+            "shuffle":true,
+            "batch_size":null,
+            "pin_memory":false,
+            "mask_normals_type":"sphere"
+        }
+    },
+    "models":
+    {
+        "name": "ResidualMLP",
+        "structure": {
+            "input_size": 3,
+            "output_size": 3,
+            "layers": [10,10],
+            "act": "Softplus",
+            "act_params": {},
+            "bias": false,
+            "init": "xavier",
+            "init_path": "../data/heat/ARMADILLO21622/current_field_weights.pth",
+            "norm":null,
+            "drop":0.0
+        }
+    },
+    "loss":
+    {
+        "name":"MSELoss",
+        "params":
+        {
+            "reg_normals":1.0e-4
+        }
+    },
+    
+    "RQloss":
+    {
+        "name":"MSELoss",
+        "params":{
+        "unit_norm_start_reg_param":1.0e3,
+        "unit_norm_current_reg_param":1.0e3,
+        "ortho_start_reg_param":1.0e4,
+        "ortho_current_reg_param":1.0e4}
+    },
+
+    
+    "optimizers":
+    [
+        {
+            "name":"RMSprop",
+            "params":
+            {
+                "lr":1.0e-4,
+                "momentum":0.9
+            }
+        }
+    ],
+    "schedulers": [],
+    "tasks":
+    {
+        "name":"eigenfunc",
+        "train":"EigenfuncOverfitTrainer",
+        "checkpoint":"HeatCheckpointer",
+        "params":
+        {
+            "save_patches":false,
+            "save_timelapse":false,
+            "save_kaolin":false
+        }
+    },
+    "logging":
+    {
+        "name":"TensorboardLogger",
+        "namespace":"eigenfunc",
+        "identifier":"test1",
+        "base_path":"../logs/heat/ARMADILLO21622/"
+    },
+    "checkpointing":
+    {
+        "base_path":"../checkpoints/heat/ARMADILLO21622/",
+        "identifier":"test1"
+    },
+    "rendering":
+    {
+        "config":"../rendering_configs/giraffe.json"
+    },
+    "loop":
+    {
+        "name": "GradientTrainingLoop",
+        "num_epochs":2000,
+        "grad_stop":1.0e-12,
+        "checkpoint_epoch":100
+    }
+}
