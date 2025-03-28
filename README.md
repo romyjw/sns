@@ -5,17 +5,6 @@ Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/
 
 The repository also contains code to generate meshes for some interesting analytic test shapes, that we designed for the evaluation of this project ([supplemental](https://geometry.cs.ucl.ac.uk/projects/2025/sns/paper_docs/supplemental.pdf)). More details below.
 
-```bibtex
-@article{williamson2025spherical,
-  title   = {Neural Geometry Processing via Spherical Neural Surfaces},
-  author  = {Williamson, Romy and Mitra, Niloy J.},
-  year    = {2025},
-  journal = {Eurographics}
-}
-```
-
-
-Contact: [romy.williamson.22@ucl.ac.uk](mailto:romy.williamson.22@ucl.ac.uk)
 
 ## Installation Steps
 
@@ -116,6 +105,24 @@ Text files containing the formulae for several genus-0 analytic test shapes are 
 We include MatLab scripts for analytically computing the Fundamental Forms, in ```data/analytic```.
 
 You may like to use these surfaces for evaluation in your own projects, or use this code as a starting point to design other nice analytic shapes. Please give credit if you do! :star2:
+
+## Citation
+
+```bibtex
+@article{williamson2025spherical,
+  title   = {Neural Geometry Processing via Spherical Neural Surfaces},
+  author  = {Williamson, Romy and Mitra, Niloy J.},
+  year    = {2025},
+  journal = {Eurographics}
+}
+```
+## Authors
+- [Romy Williamson](https://romyjw.github.io)
+- [Niloy J. Mitra](http://www0.cs.ucl.ac.uk/staff/n.mitra/)
+
+Contact: [romy.williamson.22@ucl.ac.uk](mailto:romy.williamson.22@ucl.ac.uk)
+
+
 
 
 ---
