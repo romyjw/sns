@@ -31,6 +31,7 @@ The training scripts have been tested on an Ubuntu machine, running on GPU with 
 ## Visualising Differential Quantities on an SNS
 
 The simplest way to visualise an SNS is to push a sphere-mesh through the SNS map. Then we can see the shape of the SNS, and we can display curvatures etc. as vertex-colours.
+Most of the differential geometry (first fundamental form, second fundamental form, etc) is performed by functions defined in ```neural_surfaces-main/differential/differential.py```.
 
 #### 1. Generate some sphere-meshes.
 Run the sphere-generation script - ```python make-sphere-mesh.py``` - to generate some sphere meshes. The denser, the better. By default, the script will try to generate icosphere meshes up to 9 subdivisions of an icosahedron, for high resolution visualisation. Spheres get stored in the folder ```data/analytic/sphere/ ```.
