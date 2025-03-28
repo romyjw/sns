@@ -39,6 +39,7 @@ Run the sphere-generation script - ```python make-sphere-mesh.py``` - to generat
 To visualise an SNS, you will need:
 - the model weights for the MLP, e.g. ```data/SNS/MAX10606/ ```
 - a sphere mesh at the resolution that you want to display, e.g. ```data/analytic/sphere/sphere6.obj ```
+We provide the model weights for three Spherical Neural Surfaces: the Armadillo, Max Planck and our analytic Flower shape. The weights stored in the folder ```data/SNS/```. (The ```param.pth``` files contain the data that was used during optimisation.)
 
 Check that you have these, check that the filepaths are correct in ```visuals/visOverfit.py ```, then run e.g. ```sh python -m visuals.visOverfit  MAX10606 6 ```. The number refers to which sphere mesh to use; ```sphere6.obj``` is the level 6 icosphere.
 
