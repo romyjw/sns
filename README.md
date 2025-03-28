@@ -38,7 +38,7 @@ To visualise an SNS, you will need:
 - the model weights for the MLP, e.g. ```data/SNS/MAX10606/ ```
 - a sphere mesh at the resolution that you want to display, e.g. ```data/analytic/sphere/sphere6.obj ```
 
-Check that you have these, check that the filepaths are correct in ```visuals/visOverfit.py ```, then run e.g. ```sh python -m visuals.visOverfit  MAX10606 6 ```. The number refers to which sphere mesh to use; sphere6.obj is the level 6 icosphere.
+Check that you have these, check that the filepaths are correct in ```visuals/visOverfit.py ```, then run e.g. ```sh python -m visuals.visOverfit  MAX10606 6 ```. The number refers to which sphere mesh to use; ```sphere6.obj``` is the level 6 icosphere.
 
 #### 3. Crossfields
 By changing settings within ```neural_surfaces-main/visuals/visOverfit.py ``` you can generate obj files for maximum and minimum curvature directions. These will be stored in, e.g. ```data/visualisation/MAX10606 ```
