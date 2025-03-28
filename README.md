@@ -39,7 +39,7 @@ Run the sphere-generation script - ```python make-sphere-mesh.py``` - to generat
 To visualise an SNS, you will need:
 - the model weights for the MLP, e.g. ```data/SNS/MAX10606/ ```
 - a sphere mesh at the resolution that you want to display, e.g. ```data/analytic/sphere/sphere6.obj ```
-We provide the model weights for three Spherical Neural Surfaces: the Armadillo, Max Planck and our analytic Flower shape. The weights stored in the folder ```data/SNS/```. (The ```param.pth``` files contain the data that was used during optimisation.)
+We provide the model weights for three Spherical Neural Surfaces: the Armadillo, Max Planck and our analytic Flower shape. The weights stored in the folder ```data/SNS/```.
 
 Check that you have these, check that the filepaths are correct in ```visuals/visOverfit.py ```, then run e.g. ```sh python -m visuals.visOverfit  MAX10606 6 ```. The number refers to which sphere mesh to use; ```sphere6.obj``` is the level 6 icosphere.
 
@@ -74,14 +74,20 @@ When prompted for the mesh name, provide the name **without** the `.obj` extensi
 
 ### 4. Verify the Preparation
 If the script runs successfully, it should:
-- Normalize the mesh by bounding box size (which is saved as ```data/MAX10606_nB.obj```, for example )
+- Generate a mesh normalised by bounding box: e.g. ```data/MAX10606_nB.obj```
 - Generate a `.json` file in ```neural_surfaces-main/experiment_configs/overfit/``` (which you can customise if you choose)
-- Output the exact command needed to run the overfitting
+-  Generate a ```param.pth``` file, e.g. in ```SNS/MAX10606/``` that stores the mesh vertices and spherically-parametrised vertices.
+- Output the exact command needed to run the overfitting.
 
 ### 5. Train
 
 Run the command outputted by the preparation script. E.g. 
 ```python -m mains.training experiment_configs/overfit/MAX10606.json``` .
+
+- Models are saved into the ```checkpoints``` directory.
+- Tensorboard logs are saved into the ```logs``` directory.
+- To see the logs, run ```tensorboard --logdir``` from inside the logs directory.
+- When you would like to visualise a checkpoint, move the model to the data folder, e.g. ```data/SNS/[name]/weights.pth ``` and follow the visualisation steps above.
 
 
 
