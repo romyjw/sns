@@ -3,9 +3,8 @@
 This is the official implementation of Neural Geometry Processing via Spherical Neural Surfaces (Eurographics 2025).
 Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
 
-This repository also contains code to generate some smooth genus-0 analytic test shapes that we designed for the evaluation of this project - more details below. We welcome you to use any of these shapes in your own project, but please give credit.
+The repository also contains code to generate meshes for some interesting analytic test shapes, that we designed for the evaluation of this project ([supplemental](https://geometry.cs.ucl.ac.uk/projects/2025/sns/paper_docs/supplemental.pdf)). More details below.
 
-Cite as:
 ```bibtex
 @article{williamson2025spherical,
   title   = {Neural Geometry Processing via Spherical Neural Surfaces},
@@ -13,6 +12,7 @@ Cite as:
   year    = {2025},
   journal = {Eurographics}
 }
+```
 
 
 Contact: [romy.williamson.22@ucl.ac.uk](mailto:romy.williamson.22@ucl.ac.uk)
@@ -112,6 +112,9 @@ Similarly to the ```0automatic.prepare_overfit``` script, run ```python -m 0auto
 
 Text files containing the formulae for several genus-0 analytic test shapes are provided in the ```data/analytic``` directory. After you have created some sphere meshes (as explained above, with ```make-sphere-mesh.py```) then you can run, e.g. ```python analytic_shape SMALLFLOWER 7``` to generate a mesh of the SMALLFLOWER surface, as a deformation of the level 7 icosphere.
 ![Analytic Genus-0 Shapes](shapes.png?raw=true "Analytic Genus-0 Shapes")
+
+Feel free to use these surfaces in your own projects, or use this code as a starting point to design your own shapes. Please give credit if you do! :star2:
+
 
 ---
 
