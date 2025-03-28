@@ -5,6 +5,18 @@ Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/
 
 This repository also contains code to generate some smooth genus-0 analytic test shapes that we designed for the evaluation of this project - more details below. We welcome you to use any of these shapes in your own project, but please give credit.
 
+Cite as:
+```bibtex
+@article{williamson2025spherical,
+  title   = {Neural Geometry Processing via Spherical Neural Surfaces},
+  author  = {Williamson, Romy and Mitra, Niloy J.},
+  year    = {2025},
+  journal = {Eurographics}
+}
+
+
+Contact: [romy.williamson.22@ucl.ac.uk](mailto:romy.williamson.22@ucl.ac.uk)
+
 ## Installation Steps
 
 #### 1. Create the `SphericalNS` Folder
