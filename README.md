@@ -1,4 +1,7 @@
-# SphericalNS Setup Instructions
+# Spherical Neural Surfaces
+
+This is the official implentation of Neural Geometry Processing via Spherical Neural Surfaces (Eurographics 2025).
+Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
 
 ## Environment
 You can see the required python packages, in the environment.yml file. 
