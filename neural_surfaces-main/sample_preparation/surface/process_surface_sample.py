@@ -2,6 +2,7 @@ import numpy as np
 import torch
 from argparse import ArgumentParser
 from pathlib import Path ### ???
+import igl
 
 from utils.mesh import *
 
@@ -30,8 +31,9 @@ shape_name = str(input_path.stem)
 print('the shape name is ', shape_name)
 points, faces, _, _, _ = readOBJ(input_path)
 param, _, _, _, _ = readOBJ(embedding_path)
-# remove ears vertices, and get normals (vtx normals and face normals)
-points, faces, normals, V_idx, face_normals = clean_mesh(points, faces) #where the action happens
+
+#points, faces, normals, V_idx, face_normals = clean_mesh(points, faces)
+normals = igl.per_vertex_normals(points, faces)
 
 points = np.array(points.tolist())
 
