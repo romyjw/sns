@@ -113,7 +113,9 @@ Similarly to the ```0automatic.prepare_overfit``` script, run ```python -m 0auto
 Text files containing the formulae for several genus-0 analytic test shapes are provided in the ```data/analytic``` directory. After you have created some sphere meshes (as explained above, with ```make-sphere-mesh.py```) then you can run, e.g. ```python analytic_shape SMALLFLOWER 7``` to generate a mesh of the SMALLFLOWER surface, as a deformation of the level 7 icosphere.
 ![Analytic Genus-0 Shapes](shapes.png?raw=true "Analytic Genus-0 Shapes")
 
-Feel free to use these surfaces in your own projects, or use this code as a starting point to design your own shapes. Please give credit if you do! :star2:
+We include MatLab scripts for analytically computing the Fundamental Forms, in ```data/analytic```.
+
+You may like to use these surfaces for evaluation in your own projects, or use this code as a starting point to design other nice analytic shapes. Please give credit if you do! :star2:
 
 
 ---
