@@ -21,7 +21,7 @@ git clone https://github.com/romyjw/sns
 Necessary packages are listed in environment.yml
 For training, we recommend that you use cuda.
 
-## Visualising Differential Quantities on a SNS
+## Visualising Differential Quantities on an SNS
 
 The simplest way to visualise an SNS is to push a sphere-mesh through the SNS map. Then we can see the shape of the SNS, and we can display curvatures etc. as vertex-colours.
 
@@ -36,7 +36,8 @@ To visualise an SNS, you will need:
 Check that you have these, check that the filepaths are correct in ```sh visuals/visOverfit.py ```, then run e.g. ```sh python -m visuals.visOverfit  MAX10606 6 ```. The number refers to which sphere mesh to use; sphere6.obj is the level 6 icosphere.
 
 #### 3. Crossfields
-By changing settings within ```sh visuals/visOverfit.py ``` you can generate obj files for maximum and minimum curvature directions. These will be stored in ```sh data/............. ```
+By changing settings within ```sh neural_surfaces-main/visuals/visOverfit.py ``` you can generate obj files for maximum and minimum curvature directions. These will be stored in, e.g. ```sh data/visualisation/MAX10606 ```
+Open ```sh crossfield.obj``` and ```icosphere_MAX10606.obj``` together (we recommend https://www.meshlab.net/ ), to see the coloured crossfield overlaid on the SNS shape.
 
 ## Overfit your own SNS
 
