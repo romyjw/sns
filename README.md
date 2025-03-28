@@ -3,8 +3,8 @@
 This is the official implentation of Neural Geometry Processing via Spherical Neural Surfaces (Eurographics 2025).
 Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
 
-This repository also contains code to generate some smooth genus-0 analytic test shapes that we designed for the evaluation of this project - instructions below. We welcome you to use any of these shapes in your own project, but please give credit.
-![Analytic Genus-0 Shapes](shapes.png?raw=true "Analytic Genus-0 Shapes")
+This repository also contains code to generate some smooth genus-0 analytic test shapes that we designed for the evaluation of this project - more details below. We welcome you to use any of these shapes in your own project, but please give credit.
+
 ## Installation Steps
 
 #### 1. Create the `SphericalNS` Folder
@@ -88,7 +88,7 @@ Run the command outputted by the preparation script. E.g.
 
 
 Text files containing the formulae for several genus-0 analytic test shapes are provided in the ```data/analytic``` directory. After you have created some sphere meshes (as explained above, with ```make-sphere-mesh.py```) then you can run, e.g. ```python analytic_shape SMALLFLOWER 7``` to generate a mesh of the SMALLFLOWER surface, as a deformation of the level 7 icosphere.
-
+![Analytic Genus-0 Shapes](shapes.png?raw=true "Analytic Genus-0 Shapes")
 
 ---
 
