@@ -23,7 +23,7 @@ Necessary packages are listed in ```environment.yml```.
 Run ```conda env create -f environment.yml ``` or install packages manually one-by-one.
 (This is the environment for visualisation, on CPU.)
 For training, we recommend that you use CUDA. 
-If you have issues installing pyrender: https://pyrender.readthedocs.io/en/latest/install/ or https://github.com/smartgeometry-ucl/COMP0119_24-25/tree/main/lab_demos/Tutorial%201%20-%20%20coding_framework#install-pyrender.
+If you have issues installing pyrender, try [these instructions](https://pyrender.readthedocs.io/en/latest/install/) or [these instructions](https://github.com/smartgeometry-ucl/COMP0119_24-25/tree/main/lab_demos/Tutorial%201%20-%20%20coding_framework#install-pyrender).
 
 The visualisation scripts have been tested locally on Mac.
 The training scripts have been tested on an Ubuntu machine, running on GPU with CUDA.
@@ -44,7 +44,7 @@ Check that you have these, check that the filepaths are correct in ```visuals/vi
 
 #### 3. Crossfields
 By changing settings within ```neural_surfaces-main/visuals/visOverfit.py ``` you can generate obj files for maximum and minimum curvature directions. These will be stored in, e.g. ```data/visualisation/MAX10606 ```
-Open ```crossfield.obj``` and ```icosphere_MAX10606.obj``` together (we recommend https://www.meshlab.net/ ), to see the coloured crossfield overlaid on the SNS shape.
+Open ```crossfield.obj``` and ```icosphere_MAX10606.obj``` together (we recommend [https://www.meshlab.net/](MeshLab) ), to see the coloured crossfield overlaid on the SNS shape.
 
 ## Overfit your own SNS
 
