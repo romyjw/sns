@@ -1,0 +1,25 @@
+name: mapsenv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pytorch
+  - torchaudio
+  - torchvision
+  - cython
+  - matplotlib
+  - ninja
+  - plotly
+  - prettytable
+  - scikit-learn
+  - tensorboard
+  - tqdm
+  - trimesh
+  - numpy
+  - scipy
+  - pyglet
+  - pyrender
+  - opencv
+  - yaml
+prefix: /Users/romywilliamson/miniconda3/envs/mapsenv
