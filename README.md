@@ -90,6 +90,9 @@ Run the command outputted by the preparation script. E.g.
 - To see the logs, run ```tensorboard --logdir``` from inside the logs directory.
 - When you would like to visualise a checkpoint, move the model to the data folder, e.g. ```data/SNS/[name]/weights.pth ``` and follow the visualisation steps above.
 
+## Eigenfunction Optimisation
+
+Similarly to the ```0automatic.prepare_overfit``` script, run ```python -m 0automatic.prepare_eigenfunc``` to be guided through the preparatory steps for optimisation of eigenfunctions (on an SNS that you have already optimised).
 
 
 ## Analytic Test Shapes
