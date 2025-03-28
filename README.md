@@ -1,10 +1,10 @@
 # Spherical Neural Surfaces
-
+![Frogs coloured by differential quantities](teaser.png?raw=true "SNS Frogs")
 This is the official implentation of Neural Geometry Processing via Spherical Neural Surfaces (Eurographics 2025).
 Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
-![Alt text](teaser.png?raw=true "Title")
-This repository also contains code to generate some smooth genus-0 analytic test shapes that we designed for the evaluation of this project - instructions below. We welcome you to use any of these shapes in your own project, but please give credit.
 
+This repository also contains code to generate some smooth genus-0 analytic test shapes that we designed for the evaluation of this project - instructions below. We welcome you to use any of these shapes in your own project, but please give credit.
+![Analytic Genus-0 Shapes](shapes.png?raw=true "Analytic Genus-0 Shapes")
 ## Installation Steps
 
 #### 1. Create the `SphericalNS` Folder
