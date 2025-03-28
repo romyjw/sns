@@ -4,7 +4,7 @@ This is the official implentation of Neural Geometry Processing via Spherical Ne
 Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
 
 ## Environment
-You can see the required python packages, in the ```sh environment.yml``` file. 
+You can see the required python packages, in the ```environment.yml``` file. 
 
 The visualisation scripts have been tested locally on Mac.
 The training scripts have been tested on an Ubuntu machine, running on GPU with CUDA.
@@ -23,7 +23,7 @@ git clone https://github.com/romyjw/sns
 ```
 #### 3. Make your conda environment.
 
-Necessary packages are listed in ```sh environment.yml```
+Necessary packages are listed in ```environment.yml```
 For training, we recommend that you use CUDA. 
 
 ## Visualising Differential Quantities on an SNS
@@ -35,14 +35,14 @@ Run the script make-sphere-mesh.py to generate some sphere meshes. The denser, t
 
 #### 2. Visualise
 To visualise an SNS, you will need:
-- the model weights for the MLP, e.g. ```sh data/SNS/MAX10606/ ```
-- a sphere mesh at the resolution that you want to display, e.g. ```sh data/analytic/sphere/sphere6.obj ```
+- the model weights for the MLP, e.g. ```data/SNS/MAX10606/ ```
+- a sphere mesh at the resolution that you want to display, e.g. ```data/analytic/sphere/sphere6.obj ```
 
-Check that you have these, check that the filepaths are correct in ```sh visuals/visOverfit.py ```, then run e.g. ```sh python -m visuals.visOverfit  MAX10606 6 ```. The number refers to which sphere mesh to use; sphere6.obj is the level 6 icosphere.
+Check that you have these, check that the filepaths are correct in ```visuals/visOverfit.py ```, then run e.g. ```sh python -m visuals.visOverfit  MAX10606 6 ```. The number refers to which sphere mesh to use; sphere6.obj is the level 6 icosphere.
 
 #### 3. Crossfields
-By changing settings within ```sh neural_surfaces-main/visuals/visOverfit.py ``` you can generate obj files for maximum and minimum curvature directions. These will be stored in, e.g. ```sh data/visualisation/MAX10606 ```
-Open ```sh crossfield.obj``` and ```icosphere_MAX10606.obj``` together (we recommend https://www.meshlab.net/ ), to see the coloured crossfield overlaid on the SNS shape.
+By changing settings within ```neural_surfaces-main/visuals/visOverfit.py ``` you can generate obj files for maximum and minimum curvature directions. These will be stored in, e.g. ```data/visualisation/MAX10606 ```
+Open ```crossfield.obj``` and ```icosphere_MAX10606.obj``` together (we recommend https://www.meshlab.net/ ), to see the coloured crossfield overlaid on the SNS shape.
 
 ## Overfit your own SNS
 
@@ -78,7 +78,7 @@ If the script runs successfully, it should:
 ### 5. Train
 
 Just run the command outputted by the preparation script. E.g. 
-python -m mains.training experiment_configs/overfit/MAX10606.json .
+```python -m mains.training experiment_configs/overfit/MAX10606.json``` .
 
 ---
 
