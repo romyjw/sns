@@ -3,11 +3,7 @@
 This is the official implentation of Neural Geometry Processing via Spherical Neural Surfaces (Eurographics 2025).
 Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
 
-## Environment
-You can see the required python packages, in the ```environment.yml``` file. 
-
-The visualisation scripts have been tested locally on Mac.
-The training scripts have been tested on an Ubuntu machine, running on GPU with CUDA.
+This repository also contains code to generate some smooth genus-0 analytic test shapes that we designed for the evaluation of this project - instructions below. We welcome you to use any of these shapes in your own project, but please give credit.
 
 ## Installation Steps
 
@@ -23,15 +19,21 @@ git clone https://github.com/romyjw/sns
 ```
 #### 3. Make your conda environment.
 
-Necessary packages are listed in ```environment.yml```
+Necessary packages are listed in ```environment.yml```.
+Run ```conda env create -f environment.yml ``` or install packages manually one-by-one.
+(This is the environment for visualisation, on CPU.)
 For training, we recommend that you use CUDA. 
+If you have issues installing pyrender: https://pyrender.readthedocs.io/en/latest/install/ or https://github.com/smartgeometry-ucl/COMP0119_24-25/tree/main/lab_demos/Tutorial%201%20-%20%20coding_framework#install-pyrender.
+
+The visualisation scripts have been tested locally on Mac.
+The training scripts have been tested on an Ubuntu machine, running on GPU with CUDA.
 
 ## Visualising Differential Quantities on an SNS
 
 The simplest way to visualise an SNS is to push a sphere-mesh through the SNS map. Then we can see the shape of the SNS, and we can display curvatures etc. as vertex-colours.
 
 #### 1. Generate some sphere-meshes.
-Run the script ```make-sphere-mesh.py``` to generate some sphere meshes. The denser, the better. By default, the script will try to generate icosphere meshes up to 9 subdivisions of an icosahedron, for high resolution visualisation. Spheres get stored in the folder ```data/analytic/sphere/ ```.
+Run the sphere-generation script - ```python make-sphere-mesh.py``` - to generate some sphere meshes. The denser, the better. By default, the script will try to generate icosphere meshes up to 9 subdivisions of an icosahedron, for high resolution visualisation. Spheres get stored in the folder ```data/analytic/sphere/ ```.
 
 #### 2. Visualise
 To visualise an SNS, you will need:
@@ -79,6 +81,14 @@ If the script runs successfully, it should:
 
 Run the command outputted by the preparation script. E.g. 
 ```python -m mains.training experiment_configs/overfit/MAX10606.json``` .
+
+
+
+## Analytic Test Shapes
+
+
+Text files containing the formulae for several genus-0 analytic test shapes are provided in the ```data/analytic``` directory. After you have created some sphere meshes (as explained above, with ```make-sphere-mesh.py```) then you can run, e.g. ```python analytic_shape SMALLFLOWER 7``` to generate a mesh of the SMALLFLOWER surface, as a deformation of the level 7 icosphere.
+
 
 ---
 
