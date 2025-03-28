@@ -1,9 +1,21 @@
 # Spherical Neural Surfaces
 ![Frogs coloured by differential quantities](teaser.png?raw=true "SNS Frogs")
-This is the official implentation of Neural Geometry Processing via Spherical Neural Surfaces (Eurographics 2025).
+This is the official implementation of Neural Geometry Processing via Spherical Neural Surfaces (Eurographics 2025).
 Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
 
-This repository also contains code to generate some smooth genus-0 analytic test shapes that we designed for the evaluation of this project - more details below. We welcome you to use any of these shapes in your own project, but please give credit.
+The repository also contains code to generate meshes for some interesting analytic test shapes, that we designed for the evaluation of this project ([supplemental](https://geometry.cs.ucl.ac.uk/projects/2025/sns/paper_docs/supplemental.pdf)). More details below.
+
+```bibtex
+@article{williamson2025spherical,
+  title   = {Neural Geometry Processing via Spherical Neural Surfaces},
+  author  = {Williamson, Romy and Mitra, Niloy J.},
+  year    = {2025},
+  journal = {Eurographics}
+}
+```
+
+
+Contact: [romy.williamson.22@ucl.ac.uk](mailto:romy.williamson.22@ucl.ac.uk)
 
 ## Installation Steps
 
@@ -31,6 +43,7 @@ The training scripts have been tested on an Ubuntu machine, running on GPU with 
 ## Visualising Differential Quantities on an SNS
 
 The simplest way to visualise an SNS is to push a sphere-mesh through the SNS map. Then we can see the shape of the SNS, and we can display curvatures etc. as vertex-colours.
+Most of the differential geometry (first fundamental form, second fundamental form, etc) is performed by functions defined in ```neural_surfaces-main/differential/differential.py```.
 
 #### 1. Generate some sphere-meshes.
 Run the sphere-generation script - ```python make-sphere-mesh.py``` - to generate some sphere meshes. The denser, the better. By default, the script will try to generate icosphere meshes up to 9 subdivisions of an icosahedron, for high resolution visualisation. Spheres get stored in the folder ```data/analytic/sphere/ ```.
@@ -39,6 +52,7 @@ Run the sphere-generation script - ```python make-sphere-mesh.py``` - to generat
 To visualise an SNS, you will need:
 - the model weights for the MLP, e.g. ```data/SNS/MAX10606/ ```
 - a sphere mesh at the resolution that you want to display, e.g. ```data/analytic/sphere/sphere6.obj ```
+We provide the model weights for three Spherical Neural Surfaces: the Armadillo, Max Planck and our analytic Flower shape. The weights stored in the folder ```data/SNS/```.
 
 Check that you have these, check that the filepaths are correct in ```visuals/visOverfit.py ```, then run e.g. ```sh python -m visuals.visOverfit  MAX10606 6 ```. The number refers to which sphere mesh to use; ```sphere6.obj``` is the level 6 icosphere.
 
@@ -73,15 +87,24 @@ When prompted for the mesh name, provide the name **without** the `.obj` extensi
 
 ### 4. Verify the Preparation
 If the script runs successfully, it should:
-- Normalize the mesh by bounding box size (which is saved as ```data/MAX10606_nB.obj```, for example )
+- Generate a mesh normalised by bounding box: e.g. ```data/MAX10606_nB.obj```
 - Generate a `.json` file in ```neural_surfaces-main/experiment_configs/overfit/``` (which you can customise if you choose)
-- Output the exact command needed to run the overfitting
+-  Generate a ```param.pth``` file, e.g. in ```SNS/MAX10606/``` that stores the mesh vertices and spherically-parametrised vertices.
+- Output the exact command needed to run the overfitting.
 
 ### 5. Train
 
 Run the command outputted by the preparation script. E.g. 
 ```python -m mains.training experiment_configs/overfit/MAX10606.json``` .
 
+- Models are saved into the ```checkpoints``` directory.
+- Tensorboard logs are saved into the ```logs``` directory.
+- To see the logs, run ```tensorboard --logdir``` from inside the logs directory.
+- When you would like to visualise a checkpoint, move the model to the data folder, e.g. ```data/SNS/[name]/weights.pth ``` and follow the visualisation steps above.
+
+## Eigenfunction Optimisation
+
+Similarly to the ```0automatic.prepare_overfit``` script, run ```python -m 0automatic.prepare_eigenfunc``` to be guided through the preparatory steps for optimisation of eigenfunctions (on an SNS that you have already optimised).
 
 
 ## Analytic Test Shapes
@@ -89,6 +112,11 @@ Run the command outputted by the preparation script. E.g.
 
 Text files containing the formulae for several genus-0 analytic test shapes are provided in the ```data/analytic``` directory. After you have created some sphere meshes (as explained above, with ```make-sphere-mesh.py```) then you can run, e.g. ```python analytic_shape SMALLFLOWER 7``` to generate a mesh of the SMALLFLOWER surface, as a deformation of the level 7 icosphere.
 ![Analytic Genus-0 Shapes](shapes.png?raw=true "Analytic Genus-0 Shapes")
+
+We include MatLab scripts for analytically computing the Fundamental Forms, in ```data/analytic```.
+
+You may like to use these surfaces for evaluation in your own projects, or use this code as a starting point to design other nice analytic shapes. Please give credit if you do! :star2:
+
 
 ---
 
