@@ -15,7 +15,7 @@ from scipy import sparse
 from scipy import linalg
 
 from sklearn.neighbors import KDTree
-from visualisation_functions import *
+from visuals.helpers.visualisation_functions import *
 
 import pickle
 
@@ -130,9 +130,7 @@ if make_ptcloud==True:
 	R,normals = gen_pointcloud(N,formula)
 
 
-    
-
-
+   
 
 if write_ptcloud==True:
 	

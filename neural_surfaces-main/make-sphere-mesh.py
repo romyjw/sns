@@ -15,7 +15,7 @@ from scipy import sparse
 from scipy import linalg
 
 from sklearn.neighbors import KDTree, NearestNeighbors
-from visualisation_functions import *
+from visuals.helpers.visualisation_functions import *
 
 import pickle
 
@@ -26,7 +26,7 @@ path = '../analytic/'+namespace
 
 
 
-def find_nbrs(points):#make an affinity matrix --equiv to covariance matrix. based on dot product/angle between vertices wit centre.
+def find_nbrs(points):#make an affinity matrix --equiv to covariance matrix. based on dot product/angle between vertices with centre.
 
     C = points@points.T
     print('C:',C)
@@ -192,7 +192,7 @@ show_mesh_gui([mesh])#Display meshes.
 
 
 
-for level in range (1,12):
+for level in range (1,10):
     V,F = refine(V,F)
     print('V shape',V.shape)
     print('F shape',F.shape)    

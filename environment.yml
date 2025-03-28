@@ -22,4 +22,3 @@ dependencies:
   - pyrender
   - opencv
   - yaml
-prefix: /Users/romywilliamson/miniconda3/envs/mapsenv

@@ -1,0 +1,1 @@
+P *  np.transpose(( np.transpose(np.ones_like(P))  +   0.3 * (0.4*((U*(np.pi-U))**2)*np.cos(18*U)**2 + 0.6*((U*(np.pi-U))**2)*np.sin(6*V +     18*U)**2) ))
