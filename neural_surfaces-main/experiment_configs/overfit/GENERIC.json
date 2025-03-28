@@ -5,7 +5,7 @@
         {
             "name":"ModelDataset",
             "num_points":2048,
-            "sample_path":"../data/SNS/IGEA11275/param.pth",
+            "sample_path":"../data/SNS/XXX-NAME-XXX/param.pth",
             "num_workers":8,
             "shuffle":true,
             "batch_size":null,
@@ -36,6 +36,16 @@
             "reg_normals":1.0e-4
         }
     },
+    "RQloss":
+    {
+        "name":"MSELoss",
+        "params":{
+        "unit_norm_start_reg_param":1.0e3,
+        "unit_norm_current_reg_param":1.0e3,
+        "ortho_start_reg_param":1.0e4,
+        "ortho_current_reg_param":1.0e4}
+    },
+
     "optimizers":
     [
         {
@@ -63,13 +73,14 @@
     "logging":
     {
         "name":"TensorboardLogger",
-        "namespace":"IGEA11275",
+        "namespace":"XXX-NAME-XXX",
         "identifier":"XXX-ID-XXX",
-        "base_path":"../logs/IGEA11275/"
+        "base_path":"../logs/XXX-NAME-XXX/"
     },
     "checkpointing":
     {
-        "base_path":"../checkpoints/IGEA11275/"
+        "base_path":"../checkpoints/XXX-NAME-XXX/",
+        "identifier": "XXX-ID-XXX"
     },
     "rendering":
     {
@@ -79,7 +90,7 @@
     {
         "name": "GradientTrainingLoop",
         "num_epochs":20000,
-        "grad_stop":1.0e-8,
+        "grad_stop":0.0,
         "checkpoint_epoch":100
     }
 }

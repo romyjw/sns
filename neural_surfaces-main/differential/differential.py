@@ -5,6 +5,9 @@ from torch.nn import Module
 import numpy as np
 import time
 
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="torch")
+
 if torch.cuda.is_available():
 	try:
 		from torch_batch_svd import svd
@@ -220,7 +223,7 @@ class DifferentialModule(Module):
 			dir1 = torch.stack((torch.ones_like(x1), x1)).T
 			dir1 = (dir1[:,0].T*e1.T + dir1[:,1].T*e2.T).T
 			dir1 = F.normalize(dir1, p=2, dim=1)
-			
+
 			x2 = (k2*I_E - L)/(M - k2*I_F)
 			
 			if prevent_nans:

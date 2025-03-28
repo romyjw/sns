@@ -9,7 +9,7 @@ import numpy as np
 class ModelDataset(DatasetMixin):
 
     def __init__(self, config):
-        print('modeldataset init')
+        #print('modeldataset init')
         self.sample_path = config['sample_path']
         self.num_points  = config['num_points']
 

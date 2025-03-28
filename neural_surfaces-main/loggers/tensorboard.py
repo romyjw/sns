@@ -9,7 +9,7 @@ class TensorboardLogger():
 
         #self.logger = SummaryWriter('../logs' )  # config['folder'])
         path = config['base_path']+'/'+config['identifier']
-        print('logging config',)
+        #print('logging config',)
         self.logger = SummaryWriter(path)  # config['folder'])
         
         self.namespace = config['namespace'] # this is a prefix for the experiment

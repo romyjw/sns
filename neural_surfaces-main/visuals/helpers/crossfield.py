@@ -62,7 +62,7 @@ def writequadsE(V1, F1, dir1, dir2, offset_factor, all_normals, arrow_length, fi
 
 	
 	mtl_filename = filename[:-4]+'.mtl'
-	path = '../data/visualisations/'
+	path = '../data/visualisation/'
 	file = open(path+filename,"w")
 	file.close()
 	file = open(path+mtl_filename,"w")
@@ -133,7 +133,7 @@ def writequadsE(V1, F1, dir1, dir2, offset_factor, all_normals, arrow_length, fi
 def writequadsF(V0, dir1, dir2, offset_factor, all_normals, arrow_length, ratio, overlap=False, filename = 'crossfield.obj', which=['A','B','C', 'D']):
 	
 	mtl_filename = filename[:-4]+'.mtl'
-	path = '/Users/romywilliamson/Documents/SphericalNS/spherical6/data/visualisation/'
+	path = '../data/visualisation/'
 	file = open(path+filename,"w")
 	file.close()
 	file = open(path+mtl_filename,"w")
