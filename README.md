@@ -71,9 +71,9 @@ When prompted for the mesh name, provide the name **without** the `.obj` extensi
 
 ### 4. Verify the Preparation
 If the script runs successfully, it should:
-- Normalize the mesh
-- Generate the necessary `.json` file
-- Output the exact command needed to run the overfitting training
+- Normalize the mesh by bounding box size (which is saved as ```data/MAX10606_nB.obj```, for example )
+- Generate a `.json` file in ```neural_surfaces-main/experiment_configs/overfit/``` (which you can customise if you choose)
+- Output the exact command needed to run the overfitting
 
 ### 5. Train
 
