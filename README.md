@@ -104,7 +104,7 @@ Text files containing the formulae for several genus-0 analytic test shapes are 
 
 We include MatLab scripts for analytically computing the Fundamental Forms, in ```data/analytic```.
 
-You may like to use these surfaces for evaluation in your own projects, or use this code as a starting point to design other nice analytic shapes. Please give credit if you do! :star2:
+You may like to use these surfaces for evaluation in your own projects, or use this code as a starting point to design other nice shapes. Please give credit if you do. :star2:
 
 ## Citation
 
