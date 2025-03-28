@@ -1,129 +1,84 @@
-# SphericalNS Setup Instructions
+# Spherical Neural Surfaces
 
-## Prerequisites
-Ensure you have the necessary dependencies installed, including:
-- `cmake`
-- `make`
-- `Python` (version compatible with `0automatic.prepare_overfit_Balin.py`)
+This is the official implentation of Neural Geometry Processing via Spherical Neural Surfaces (Eurographics 2025).
+Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
+
+## Environment
+You can see the required python packages, in the ```environment.yml``` file. 
+
+The visualisation scripts have been tested locally on Mac.
+The training scripts have been tested on an Ubuntu machine, running on GPU with CUDA.
 
 ## Installation Steps
 
-### 1. Create the `SphericalNS` Folder
+#### 1. Create the `SphericalNS` Folder
 ```sh
 mkdir SphericalNS
 cd SphericalNS
 ```
 
-### 2. Clone Required Repositories
-#### Clone the modified `surface-maps-via-adaptive-triangulations` repository:
+#### 2. Clone the `sns` repository:
 ```sh
-git clone https://github.com/romyjw/ROMYsmvat
+git clone https://github.com/romyjw/sns
 ```
-#### Clone the `SphericalFour` repository and rename it:
-```sh
-git clone https://github.com/romyjw/SphericalFour spherical2
-```
+#### 3. Make your conda environment.
 
-### 3. Compile the Code in `ROMYsmvat`
-```sh
-cd ROMYsmvat
-mkdir build
-cd build
-cmake ..
-make -j4
-```
+Necessary packages are listed in ```environment.yml```
+For training, we recommend that you use CUDA. 
 
-### 4. Prepare the Data Folder
-Create a `data` folder inside `spherical2`:
-```sh
-mkdir -p SphericalNS/spherical2/data
-```
-Place a genus 0 `.obj` mesh in the `data` folder, e.g., `MAX10606.obj`.
+## Visualising Differential Quantities on an SNS
 
-### 5. Run the Preparation Script
+The simplest way to visualise an SNS is to push a sphere-mesh through the SNS map. Then we can see the shape of the SNS, and we can display curvatures etc. as vertex-colours.
+
+#### 1. Generate some sphere-meshes.
+Run the script ```make-sphere-mesh.py``` to generate some sphere meshes. The denser, the better. By default, the script will try to generate icosphere meshes up to 9 subdivisions of an icosahedron, for high resolution visualisation. Spheres get stored in the folder ```data/analytic/sphere/ ```.
+
+#### 2. Visualise
+To visualise an SNS, you will need:
+- the model weights for the MLP, e.g. ```data/SNS/MAX10606/ ```
+- a sphere mesh at the resolution that you want to display, e.g. ```data/analytic/sphere/sphere6.obj ```
+
+Check that you have these, check that the filepaths are correct in ```visuals/visOverfit.py ```, then run e.g. ```sh python -m visuals.visOverfit  MAX10606 6 ```. The number refers to which sphere mesh to use; ```sphere6.obj``` is the level 6 icosphere.
+
+#### 3. Crossfields
+By changing settings within ```neural_surfaces-main/visuals/visOverfit.py ``` you can generate obj files for maximum and minimum curvature directions. These will be stored in, e.g. ```data/visualisation/MAX10606 ```
+Open ```crossfield.obj``` and ```icosphere_MAX10606.obj``` together (we recommend https://www.meshlab.net/ ), to see the coloured crossfield overlaid on the SNS shape.
+
+## Overfit your own SNS
+
+
+### 1. Prepare the Data Folder
+
+Place a genus-0 `.obj` mesh in the `data` folder, e.g., `MAX10606.obj`.
+
+### 2. Spherical Mesh Embedding
+Generate a spherical mesh embedding of the mesh. In the SNS paper, we use Multi-Resolution sphere embedding - code is available from Schmidt et. al. here: https://github.com/patr-schm/surface-maps-via-adaptive-triangulations .
+Place a spherical mesh-embedding of the shape in the data folder, and name it e.g. MAX10606_final_embedding.obj
+
+
+### 3. Run the Preparation Script
 Navigate to the neural surfaces directory:
 ```sh
-cd SphericalNS/spherical2/neural-surfaces-main
+cd SphericalNS/sns/neural-surfaces-main
 ```
+Edit the filepath in this script: 0automatic/prepare_overfit.py .
+
 Run the script:
 ```sh
-python -m 0automatic.prepare_overfit_Balin.py
+python -m 0automatic.prepare_overfit.py
 ```
 When prompted for the mesh name, provide the name **without** the `.obj` extension, e.g., `MAX10606`.
 
-### 6. Verify the Preparation
+### 4. Verify the Preparation
 If the script runs successfully, it should:
-- Normalize the mesh
-- Generate the necessary `.json` file
-- Output the command to run the overfitting training
+- Normalize the mesh by bounding box size (which is saved as ```data/MAX10606_nB.obj```, for example )
+- Generate a `.json` file in ```neural_surfaces-main/experiment_configs/overfit/``` (which you can customise if you choose)
+- Output the exact command needed to run the overfitting
 
-You're now ready to proceed with training and further experiments! 🚀
+### 5. Train
+
+Run the command outputted by the preparation script. E.g. 
+```python -m mains.training experiment_configs/overfit/MAX10606.json``` .
 
 ---
-
-## README File
-To create a `README.md` file for GitHub, save the following content as `README.md` in your repository:
-
-```markdown
-# SphericalNS Setup Instructions
-
-## Prerequisites
-Ensure you have the necessary dependencies installed, including:
-- `cmake`
-- `make`
-- `Python` (version compatible with `0automatic.prepare_overfit_Balin.py`)
-
-## Installation Steps
-
-### 1. Create the `SphericalNS` Folder
-```sh
-mkdir SphericalNS
-cd SphericalNS
-```
-
-### 2. Clone Required Repositories
-#### Clone the modified `surface-maps-via-adaptive-triangulations` repository:
-```sh
-git clone https://github.com/romyjw/ROMYsmvat
-```
-#### Clone the `SphericalFour` repository and rename it:
-```sh
-git clone https://github.com/romyjw/SphericalFour spherical2
-```
-
-### 3. Compile the Code in `ROMYsmvat`
-```sh
-cd ROMYsmvat
-mkdir build
-cd build
-cmake ..
-make -j4
-```
-
-### 4. Prepare the Data Folder
-Create a `data` folder inside `spherical2`:
-```sh
-mkdir -p SphericalNS/spherical2/data
-```
-Place a genus 0 `.obj` mesh in the `data` folder, e.g., `MAX10606.obj`.
-
-### 5. Run the Preparation Script
-Navigate to the neural surfaces directory:
-```sh
-cd SphericalNS/spherical2/neural-surfaces-main
-```
-Run the script:
-```sh
-python -m 0automatic.prepare_overfit_Balin.py
-```
-When prompted for the mesh name, provide the name **without** the `.obj` extension, e.g., `MAX10606`.
-
-### 6. Verify the Preparation
-If the script runs successfully, it should:
-- Normalize the mesh
-- Generate the necessary `.json` file
-- Output the command to run the overfitting training
-
-You're now ready to proceed with training and further experiments! 🚀
-```
 
