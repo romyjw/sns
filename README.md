@@ -4,8 +4,10 @@ This is the official implentation of Neural Geometry Processing via Spherical Ne
 Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
 
 ## Environment
-You can see the required python packages, in the environment.yml file. 
-It is recommended to run with CUDA.
+You can see the required python packages, in the ```sh environment.yml``` file. 
+
+The visualisation scripts have been tested locally on Mac.
+The training scripts have been tested on an Ubuntu machine, running on GPU with CUDA.
 
 ## Installation Steps
 
@@ -21,8 +23,8 @@ git clone https://github.com/romyjw/sns
 ```
 #### 3. Make your conda environment.
 
-Necessary packages are listed in environment.yml
-For training, we recommend that you use cuda.
+Necessary packages are listed in ```sh environment.yml```
+For training, we recommend that you use CUDA. 
 
 ## Visualising Differential Quantities on an SNS
 
