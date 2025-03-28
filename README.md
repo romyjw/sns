@@ -77,7 +77,7 @@ If the script runs successfully, it should:
 
 ### 5. Train
 
-Just run the command outputted by the preparation script. E.g. 
+Run the command outputted by the preparation script. E.g. 
 ```python -m mains.training experiment_configs/overfit/MAX10606.json``` .
 
 ---
