@@ -85,7 +85,10 @@ Run the command outputted by the preparation script. E.g.
 
 
 ## Analytic Test Shapes
-Text files containing the formulae for several genus-0 analytic test shapes are provided in the ```data/analytic``` directory.
-After you have created some sphere meshes (as explained above, with ```make-sphere-mesh.py```) then you can run, e.g. ```python analytic_shape SMALLFLOWER 7``` to generate a mesh of the SMALLFLOWER surface, as a deformation of the level 7 icosphere.
+
+
+Text files containing the formulae for several genus-0 analytic test shapes are provided in the ```data/analytic``` directory. After you have created some sphere meshes (as explained above, with ```make-sphere-mesh.py```) then you can run, e.g. ```python analytic_shape SMALLFLOWER 7``` to generate a mesh of the SMALLFLOWER surface, as a deformation of the level 7 icosphere.
+
+
 ---
 
