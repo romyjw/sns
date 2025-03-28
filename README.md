@@ -109,7 +109,7 @@ You may like to use these surfaces for evaluation in your own projects, or use t
 ## Citation
 
 ```bibtex
-@article{williamson2025spherical,
+@inproceedings{williamson2025spherical,
   title   = {Neural Geometry Processing via Spherical Neural Surfaces},
   author  = {Williamson, Romy and Mitra, Niloy J.},
   year    = {2025},
