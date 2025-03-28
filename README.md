@@ -23,8 +23,11 @@ git clone https://github.com/romyjw/sns
 ```
 #### 3. Make your conda environment.
 
-Necessary packages are listed in ```environment.yml```
+Necessary packages are listed in ```environment.yml```.
+Run ```conda env create -f environment.yml ``` or install packages manually one-by-one.
+(This is the environment for visualisation, on CPU.)
 For training, we recommend that you use CUDA. 
+If you have issues installing pyrender: https://pyrender.readthedocs.io/en/latest/install/ or https://github.com/smartgeometry-ucl/COMP0119_24-25/tree/main/lab_demos/Tutorial%201%20-%20%20coding_framework#install-pyrender.
 
 ## Visualising Differential Quantities on an SNS
 
