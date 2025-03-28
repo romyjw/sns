@@ -3,12 +3,6 @@
 This is the official implentation of Neural Geometry Processing via Spherical Neural Surfaces (Eurographics 2025).
 Please see the project webpage: https://geometry.cs.ucl.ac.uk/projects/2025/sns/.
 
-## Environment
-You can see the required python packages, in the ```environment.yml``` file. 
-
-The visualisation scripts have been tested locally on Mac.
-The training scripts have been tested on an Ubuntu machine, running on GPU with CUDA.
-
 ## Installation Steps
 
 #### 1. Create the `SphericalNS` Folder
@@ -28,6 +22,9 @@ Run ```conda env create -f environment.yml ``` or install packages manually one-
 (This is the environment for visualisation, on CPU.)
 For training, we recommend that you use CUDA. 
 If you have issues installing pyrender: https://pyrender.readthedocs.io/en/latest/install/ or https://github.com/smartgeometry-ucl/COMP0119_24-25/tree/main/lab_demos/Tutorial%201%20-%20%20coding_framework#install-pyrender.
+
+The visualisation scripts have been tested locally on Mac.
+The training scripts have been tested on an Ubuntu machine, running on GPU with CUDA.
 
 ## Visualising Differential Quantities on an SNS
 
